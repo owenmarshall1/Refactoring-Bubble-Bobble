@@ -6,7 +6,7 @@ class PlayScreen:
         self.app = app
         self.game = Game(Player())
 
-    def update(self):
+    def update(self, input_state):
         # Import game module to access global game reference
         import game as game_module
         game_module.game = self.game
