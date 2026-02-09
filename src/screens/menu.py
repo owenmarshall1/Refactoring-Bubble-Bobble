@@ -1,4 +1,4 @@
-from game import Game, Player, space_pressed
+from game import Game, Player
 
 
 class MenuScreen:
@@ -11,11 +11,11 @@ class MenuScreen:
         import game as game_module
         game_module.game = self.game
         
-        # Update game logic even on menu screen
-        self.game.update()
+        # Update game logic even on menu screen (without player)
+        self.game.update(input_state)
 
         # Check if space is pressed to transition to play screen
-        if space_pressed():
+        if input_state.fire_pressed:
             # Import here to avoid circular imports
             from src.screens.play import PlayScreen
             # Switch to play state, and create a new Game object with a Player

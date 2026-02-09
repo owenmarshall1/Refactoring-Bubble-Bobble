@@ -1,4 +1,4 @@
-from game import Game, Player, draw_status, space_pressed
+from game import Game, Player, draw_status
 
 
 class PlayScreen:
@@ -11,8 +11,8 @@ class PlayScreen:
         import game as game_module
         game_module.game = self.game
         
-        # Update game logic
-        self.game.update()
+        # Update game logic with input state
+        self.game.update(input_state)
 
         # Check if player is dead
         if self.game.player.lives < 0:

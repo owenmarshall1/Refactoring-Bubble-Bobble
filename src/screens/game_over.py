@@ -1,4 +1,4 @@
-from game import draw_status, space_pressed
+from game import draw_status
 
 
 class GameOverScreen:
@@ -12,7 +12,7 @@ class GameOverScreen:
         game_module.game = self.game
         
         # Check if space is pressed to transition back to menu
-        if space_pressed():
+        if input_state.fire_pressed:
             # Import here to avoid circular imports
             from src.screens.menu import MenuScreen
             # Switch to menu state
